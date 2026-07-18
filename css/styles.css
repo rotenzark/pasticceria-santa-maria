@@ -1,0 +1,241 @@
+/* ========================================================================
+   Pasticceria Santa Maria — la mattina del quartiere, in Via San Siro
+   Pasticceria classica calda. Playfair Display + Mulish. Crema/crimson/oro.
+   Gesto-firma: «la mattina del quartiere» (la pasticceria-rituale).
+   ===================================================================== */
+
+:root{
+  --panna:#FBF3E7;
+  --crema:#FFFBF2;
+  --rosso:#B0303A;        /* crimson classico */
+  --rosso-2:#C23C46;
+  --oro:#C69A4C;
+  --ciocc:#4A2E22;
+  --berry:#C25A6B;
+  --ink:#2E211A;
+  --muted:#9A8672;
+  --line:rgba(46,33,26,.14);
+  --maxw:1180px;
+  --pad:clamp(20px,5vw,64px);
+  --fdisplay:'Playfair Display',Georgia,serif;
+  --fbody:'Mulish',system-ui,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--crema);color:var(--ink);
+  font-family:var(--fbody);font-size:clamp(16px,1.05vw,18px);line-height:1.7;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+.wrap--narrow{max-width:820px}
+
+.skip{position:absolute;left:-999px;top:0;background:var(--rosso);color:#fff;padding:10px 16px;z-index:200}
+.skip:focus{left:8px;top:8px}
+
+/* ---------- monogramma SM ---------- */
+.brand__mono,.intro__mono{display:inline-grid;place-items:center;flex:none;font-family:var(--fdisplay);font-weight:700;
+  color:var(--panna);background:var(--rosso);border-radius:50%;line-height:1}
+.brand__mono{width:34px;height:34px;font-size:1rem;border:1.5px solid var(--oro)}
+.intro__mono{width:66px;height:66px;font-size:1.9rem;border:2px solid var(--oro)}
+
+/* ---------- tipografia condivisa ---------- */
+.kicker{font-family:var(--fbody);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rosso);font-weight:700;margin:0 0 14px}
+.h2{font-family:var(--fdisplay);font-weight:600;font-size:clamp(2rem,4.6vw,3.3rem);line-height:1.1;margin:0 0 22px;color:var(--ink)}
+.h2 em{font-style:italic;font-weight:500;color:var(--rosso)}
+.lead{font-size:clamp(1.05rem,1.7vw,1.32rem);color:#4a3c31;max-width:60ch;margin:0 0 22px}
+.lead strong{color:var(--rosso);font-weight:700}
+section{position:relative}
+
+/* ---------- bottoni ---------- */
+.btn{display:inline-flex;align-items:center;gap:.5em;justify-content:center;font-family:var(--fbody);font-weight:700;
+  letter-spacing:.01em;font-size:.98rem;padding:.85em 1.6em;border-radius:6px;text-decoration:none;cursor:pointer;
+  border:2px solid transparent;transition:transform .2s ease,background .2s ease,color .2s ease}
+.btn--red{background:var(--rosso);color:#fff}
+.btn--red:hover{background:var(--rosso-2);transform:translateY(-2px)}
+.btn--ghost{border-color:var(--ink);color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);color:var(--panna)}
+
+/* ---------- intro ---------- */
+.intro{position:fixed;inset:0;z-index:300;background:var(--panna);display:grid;place-items:center;
+  transition:opacity .6s ease,visibility .6s ease}
+.intro.hide{opacity:0;visibility:hidden}
+.intro__inner{text-align:center;display:grid;justify-items:center;gap:12px}
+.intro__name{font-family:var(--fdisplay);font-weight:600;font-size:clamp(2rem,7vw,3rem);color:var(--ink)}
+.intro__sub{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rosso)}
+
+/* ---------- header ---------- */
+.site-head{position:sticky;top:0;z-index:120;background:rgba(255,251,242,.96);border-bottom:1px solid var(--line)}
+.head-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:11px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand__name{font-family:var(--fdisplay);font-weight:600;font-size:1.28rem;color:var(--ink)}
+.nav{display:flex;gap:26px}
+.nav a{font-size:.94rem;color:var(--ink);text-decoration:none;transition:color .2s;font-weight:600}
+.nav a:hover{color:var(--rosso)}
+.head-cta{display:flex;align-items:center;gap:12px}
+.lang{background:none;border:1px solid var(--line);color:var(--ink);font-family:var(--fbody);font-size:.72rem;font-weight:700;
+  padding:6px 10px;border-radius:4px;cursor:pointer;letter-spacing:.06em;transition:border-color .2s,color .2s,background .2s}
+.lang:hover{border-color:var(--rosso);background:var(--rosso);color:#fff}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:var(--ink);transition:.25s}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:clamp(560px,88vh,780px);display:flex;align-items:flex-end;overflow:hidden}
+.hero__photo{position:absolute;inset:0;z-index:0}
+.hero__photo img{width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(1.02) brightness(.66)}
+.hero__scrim{position:absolute;inset:0;z-index:1;
+  background:radial-gradient(70% 60% at 25% 20%,rgba(176,48,58,.22),transparent 60%),
+    linear-gradient(180deg,rgba(46,33,26,.28) 0%,rgba(46,33,26,.5) 55%,rgba(46,33,26,.92) 100%)}
+.hero__inner{position:relative;z-index:2;width:100%;padding-block:min(9vh,90px) clamp(30px,6vh,64px)}
+.hero__badge{display:inline-flex;align-items:center;gap:.4em;font-size:.84rem;color:var(--panna);background:rgba(46,33,26,.45);
+  border:1px solid rgba(251,243,231,.3);padding:6px 14px;border-radius:30px;margin:0 0 18px}
+.hero__badge .stars{color:var(--oro)}
+.hero__badge strong{color:#fff}
+.hero__kicker{font-family:var(--fbody);font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  font-size:clamp(.82rem,1.5vw,1rem);color:var(--oro);margin:0 0 10px}
+.hero__title{font-family:var(--fdisplay);font-weight:600;font-size:clamp(2.8rem,7.5vw,5.4rem);line-height:1;margin:0 0 18px;color:var(--panna)}
+.hero__title em{font-style:italic;font-weight:500;color:var(--oro)}
+.hero__sub{font-size:clamp(1.05rem,1.8vw,1.32rem);max-width:46ch;color:#f2e6d6;margin:0 0 22px}
+.hero__sub strong{color:#fff;font-weight:700}
+.tuner{display:inline-flex;align-items:center;gap:.6em;font-family:var(--fbody);font-weight:700;font-size:.9rem;color:var(--oro);
+  background:rgba(46,33,26,.4);border:1px solid rgba(198,154,76,.4);border-radius:4px;padding:8px 14px;margin:0 0 24px}
+.tuner__dot{width:9px;height:9px;border-radius:50%;background:var(--oro);box-shadow:0 0 10px var(--oro);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px}
+
+/* ---------- I GRANDI CLASSICI ---------- */
+.classici{padding-block:clamp(64px,10vw,120px)}
+.cla__grid,.wk__grid,.casa__grid,.dove__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.cla__foto,.wk__foto,.casa__foto{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;
+  box-shadow:0 30px 60px -34px rgba(46,33,26,.55)}
+.cla__foto img,.casa__foto img{width:100%;height:100%;object-fit:cover;aspect-ratio:1}
+.wk__foto{order:-1}
+.wk__foto img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.cla__list{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cla__list li{padding-left:26px;position:relative;color:#4a3c31;font-weight:500}
+.cla__list li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:12px;border-radius:50%;
+  background:var(--rosso);box-shadow:0 0 0 3px rgba(198,154,76,.35)}
+
+/* ---------- IL WEEKEND ---------- */
+.weekend{padding-block:clamp(64px,10vw,120px);background:var(--panna)}
+
+/* ---------- LE TORTE ---------- */
+.torte{padding-block:clamp(64px,10vw,120px)}
+.torte .lead{margin-bottom:32px}
+.tor__grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tor__foto{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;
+  box-shadow:0 24px 50px -34px rgba(46,33,26,.5)}
+.tor__foto img{width:100%;height:100%;object-fit:cover;aspect-ratio:1}
+
+/* ---------- COME A CASA ---------- */
+.casa{padding-block:clamp(64px,10vw,120px);background:var(--panna)}
+.casa__foto{order:-1}
+
+/* ---------- GALLERY ---------- */
+.gallery{padding-block:clamp(64px,10vw,120px)}
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.shot{margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;aspect-ratio:1;transition:transform .3s ease}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.shot:hover img{transform:scale(1.06)}
+.shot:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+
+/* ---------- RECENSIONI ---------- */
+.recensioni{padding-block:clamp(64px,10vw,120px);background:var(--panna)}
+.rec__head{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:32px}
+.rec__score{font-family:var(--fdisplay);font-weight:700;font-size:clamp(2.6rem,6vw,4rem);color:var(--rosso);line-height:1}
+.rec__stars{color:var(--oro);font-size:1.5rem;letter-spacing:.08em}
+.rec__stars .half{opacity:.45}
+.rec__from{font-size:.9rem;color:var(--muted)}
+.rec__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.rec{margin:0;padding:26px;border:1px solid var(--line);border-radius:14px;background:var(--crema)}
+.rec p{margin:0 0 14px;font-family:var(--fdisplay);font-style:italic;font-size:1.08rem;color:var(--ink);line-height:1.5}
+.rec cite{font-style:normal;font-size:.8rem;color:var(--rosso);font-weight:700}
+
+/* ---------- DOVE ---------- */
+.dove{padding-block:clamp(64px,10vw,120px)}
+.dove__grid{align-items:start}
+.dove__addr{color:#4a3c31;margin:0 0 16px}
+.dove__stato{display:flex;align-items:center;gap:.5em;font-weight:700;color:var(--rosso);margin:0 0 18px;font-size:.98rem}
+.dove__stato .dot{width:9px;height:9px;border-radius:50%;background:var(--oro)}
+.orari{width:100%;border-collapse:collapse;margin:0 0 24px;font-size:.98rem}
+.orari th,.orari td{text-align:left;padding:10px 4px;border-bottom:1px solid var(--line)}
+.orari th{font-weight:600;color:var(--ink)}
+.orari td{color:var(--muted);text-align:right}
+.orari tr.is-today th,.orari tr.is-today td{color:var(--rosso);font-weight:700}
+.orari tr.is-today th::before{content:"▸ ";color:var(--oro)}
+.dove__cta{display:flex;flex-wrap:wrap;gap:12px}
+.dove__map{border-radius:14px;overflow:hidden;border:1px solid var(--line);min-height:400px}
+.dove__map iframe{width:100%;height:100%;min-height:400px;display:block;filter:sepia(.1) saturate(1.02)}
+
+/* ---------- FAQ ---------- */
+.faq{padding-block:clamp(56px,9vw,110px);background:var(--panna)}
+.faq__list{margin-top:16px;border-top:1px solid var(--line)}
+.faq__item{border-bottom:1px solid var(--line)}
+.faq__item summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;position:relative;
+  font-family:var(--fdisplay);font-weight:600;font-size:1.14rem;color:var(--ink)}
+.faq__item summary::-webkit-details-marker{display:none}
+.faq__item summary::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);color:var(--rosso);font-size:1.4rem}
+.faq__item[open] summary::after{content:"–"}
+.faq__item p{margin:0 0 18px;color:var(--muted);max-width:70ch}
+
+/* ---------- footer ---------- */
+.site-foot{background:var(--ciocc);color:var(--panna);padding-block:44px}
+.foot-inner{display:grid;gap:14px}
+.foot__brand{display:flex;align-items:center;gap:10px}
+.foot__brand .brand__name{color:var(--panna)}
+.foot__dove{margin:0;color:rgba(251,243,231,.85)}
+.foot__dove a{color:var(--oro);text-decoration:none}
+.foot__demo{margin:0;font-size:.8rem;color:rgba(251,243,231,.6);max-width:72ch;line-height:1.5}
+
+/* ---------- action-bar mobile ---------- */
+.actionbar{position:fixed;left:0;right:0;bottom:0;z-index:100;display:none;grid-template-columns:repeat(3,1fr);
+  background:var(--ciocc);border-top:1px solid rgba(198,154,76,.3);transform:translateY(100%);transition:transform .3s ease}
+.actionbar.is-visible{transform:translateY(0)}
+.actionbar a{padding:14px 6px;text-align:center;text-decoration:none;color:var(--panna);font-weight:700;font-size:.9rem;
+  border-right:1px solid rgba(198,154,76,.25)}
+.actionbar a:last-child{border-right:0}
+
+/* ---------- lightbox ---------- */
+.lightbox{position:fixed;inset:0;z-index:400;background:rgba(30,20,14,.93);display:grid;place-items:center;padding:24px}
+.lightbox[hidden]{display:none}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:10px;background:var(--crema)}
+.lightbox__close{position:absolute;top:18px;right:24px;background:none;border:0;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(24px)}
+.reveal.in-view{opacity:1;transform:none}
+.reveal-hero{opacity:0;transform:translateY(18px)}
+.reveal-hero.in-view{opacity:1;transform:none}
+html:not(.js) .reveal,html:not(.js) .reveal-hero{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:920px){
+  .nav{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);flex-direction:column;gap:8px;
+    background:var(--crema);padding:88px 28px 28px;transform:translateX(100%);transition:transform .3s ease;
+    border-left:1px solid var(--line);z-index:115}
+  .nav.nav-open{transform:translateX(0)}
+  .nav a{font-size:1.15rem;padding:8px 0}
+  .burger{display:flex}
+  .cla__grid,.wk__grid,.casa__grid,.dove__grid{grid-template-columns:1fr}
+  .cla__foto,.casa__foto{order:-1}
+  .rec__grid{grid-template-columns:1fr}
+  .shots{grid-template-columns:repeat(2,1fr)}
+  .shot:nth-child(1){grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
+  .actionbar{display:grid}
+  .site-foot{padding-bottom:84px}
+}
+@media (max-width:540px){
+  .cla__list{grid-template-columns:1fr}
+  .tor__grid{grid-template-columns:1fr}
+  .shots{grid-template-columns:1fr}
+  .shot:nth-child(1){grid-column:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  .tuner__dot{animation:none}
+  .reveal,.reveal-hero{opacity:1;transform:none}
+}

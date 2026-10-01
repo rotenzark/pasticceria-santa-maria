@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
 <title>Pasticceria Santa Maria — la mattina del quartiere, in Via San Siro</title>
 <meta name="description" content="Pasticceria Santa Maria, in Via San Siro a Milano: la classica pasticceria di quartiere. Brioche alla crema, croissant, bignè, pasticcini, i krapfen del weekend e le torte su ordinazione. Aperta solo la mattina.">
 <link rel="canonical" href="https://rotenzark.github.io/pasticceria-santa-maria/">
@@ -15,9 +16,7 @@
 <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css?v=1">
 <link rel="stylesheet" href="css/styles.css?v=1">
 <script type="application/ld+json">
 {
@@ -28,7 +27,11 @@
   "image": "https://rotenzark.github.io/pasticceria-santa-maria/img/og-image.jpg",
   "url": "https://rotenzark.github.io/pasticceria-santa-maria/",
   "telephone": "+390236562193",
-  "servesCuisine": ["Pasticceria", "Colazione", "Torte"],
+  "servesCuisine": [
+    "Pasticceria",
+    "Colazione",
+    "Torte"
+  ],
   "priceRange": "€",
   "address": {
     "@type": "PostalAddress",
@@ -37,11 +40,32 @@
     "postalCode": "20149",
     "addressCountry": "IT"
   },
-  "geo": { "@type": "GeoCoordinates", "latitude": 45.4698376, "longitude": 9.1539696 },
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.5", "reviewCount": "140" },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.4698376,
+    "longitude": 9.1539696
+  },
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "07:30", "closes": "13:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "08:00", "closes": "13:00" }
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "07:30",
+      "closes": "13:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "08:00",
+      "closes": "13:00"
+    }
   ]
 }
 </script>
@@ -234,7 +258,7 @@
       </div>
     </div>
     <div class="dove__map reveal">
-      <iframe title="Mappa di Pasticceria Santa Maria, Via San Siro 6 Milano" src="https://www.google.com/maps?q=Pasticceria+Santa+Maria+Via+San+Siro+6+Milano&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="mappa-clic" data-mappa-clic style="--mappa-h: 450px"><template><iframe title="Mappa di Pasticceria Santa Maria, Via San Siro 6 Milano" src="https://www.google.com/maps?q=Pasticceria+Santa+Maria+Via+San+Siro+6+Milano&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></template><div class="mappa-clic__velo"><a class="mappa-clic__btn" href="https://www.google.com/maps/place/Pasticceria+Santa+Maria/@45.4698376,9.1539696,17z" target="_blank" rel="noopener">Mostra la mappa</a><p class="mappa-clic__nota">La mappa è di Google: aprendola, Google riceve il tuo indirizzo IP e può usare i suoi cookie.</p></div></div>
     </div>
   </div>
 </section>
@@ -262,6 +286,7 @@
     <p class="foot__dove" data-i18n="foot.dove">Via San Siro 6, 20149 Milano · <a href="tel:+390236562193">02 3656 2193</a></p>
     <p class="foot__demo" data-i18n="foot.demo">Sito dimostrativo (concept) realizzato da Bespoke Studio a partire da dati e foto pubblici — non è il sito ufficiale dell'attività.</p>
   </div>
+  <p class="privacy-link"><a href="privacy.html">Privacy</a></p>
 </footer>
 
 <!-- action-bar mobile -->
@@ -280,5 +305,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/main.js?v=3"></script>
+<script src="js/mappa-clic.js?v=1" defer></script>
 </body>
 </html>
